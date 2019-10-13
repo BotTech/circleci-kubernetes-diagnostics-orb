@@ -31,7 +31,7 @@ workflows:
             tags:
               only: /master-patch.*/
           name: dev-promote-patch
-          orb-name: lightbend/kubernetes-diagnostics
+          orb-name: bottech/kubernetes-diagnostics
           requires:
             - integration-tests-master
       - orb-tools/dev-promote-prod:
@@ -41,7 +41,7 @@ workflows:
             tags:
               only: /master-minor.*/
           name: dev-promote-minor
-          orb-name: lightbend/kubernetes-diagnostics
+          orb-name: bottech/kubernetes-diagnostics
           release: minor
           requires:
             - integration-tests-master
@@ -52,7 +52,7 @@ workflows:
             tags:
               only: /master-major.*/
           name: dev-promote-major
-          orb-name: lightbend/kubernetes-diagnostics
+          orb-name: bottech/kubernetes-diagnostics
           release: major
           requires:
             - integration-tests-master
@@ -65,7 +65,7 @@ workflows:
           requires:
             - orb-tools/lint
       - orb-tools/publish-dev:
-          orb-name: lightbend/kubernetes-diagnostics
+          orb-name: bottech/kubernetes-diagnostics
           requires:
             - orb-tools/pack
       - orb-tools/trigger-integration-workflow:
