@@ -34,6 +34,7 @@ workflows:
           orb-name: bottech/kubernetes-diagnostics
           requires:
             - integration-tests-master
+          ssh-fingerprints: 7d:5a:30:7b:f0:54:fb:31:da:97:74:e7:35:76:0b:07
       - orb-tools/dev-promote-prod:
           filters:
             branches:
@@ -45,6 +46,7 @@ workflows:
           release: minor
           requires:
             - integration-tests-master
+          ssh-fingerprints: 7d:5a:30:7b:f0:54:fb:31:da:97:74:e7:35:76:0b:07
       - orb-tools/dev-promote-prod:
           filters:
             branches:
@@ -56,6 +58,7 @@ workflows:
           release: major
           requires:
             - integration-tests-master
+          ssh-fingerprints: 7d:5a:30:7b:f0:54:fb:31:da:97:74:e7:35:76:0b:07
   publish-dev:
     jobs:
       - orb-tools/lint:
